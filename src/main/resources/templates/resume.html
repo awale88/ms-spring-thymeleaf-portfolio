@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Personal - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <div th:insert="menu :: menu"></div>
+            <!-- Page Content-->
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+                        <!-- Experience Section-->
+                        <section>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-0">Experience</h2>
+                                <!-- Download resume button-->
+                                <!-- Note: Set the link href target to a PDF file within your project-->
+                                <a class="btn btn-primary px-4 py-3" href="/resume/CV_2025.pdf">
+                                    <div class="d-inline-block bi bi-download me-2"></div>
+                                    Download Resume
+                                </a>
+                            </div>
+                            <!-- Experience Card 1-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">2023 - Present</div>
+                                                <div class="small fw-bolder">Junior Java Developer</div>
+                                                <div class="small text-muted">SafeRent Solutions LLC</div>
+                                                <div class="small text-muted">Irving, TX</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>
+                                            <p>• Designed and implemented scalable RESTful APIs using Java 17, Spring Boot, and Hibernate.</p>
+                                            <p>• Boosted performance by 35% through caching strategies and database query optimization.</p>
+                                            <p>• Developed and maintained CI/CD pipelines using Jenkins, Docker, Kubernetes.</p>
+                                            <p>• Secured service integrations using OAuth2, JWT, and implemented API documentation via Swagger.</p>
+                                            <p>• Collaborated with cross-functional teams in Agile sprints, including QA and front-end engineers.</p>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">2021 - 2023</div>
+                                                <div class="small fw-bolder">Associate Java Developer</div>
+                                                <div class="small text-muted">Walmart</div>
+                                                <div class="small text-muted">Bentonville, AR</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>
+                                            <p>• Assisted in developing backend modules using Java and Spring MVC.</p>
+                                            <p>• Created and executed unit tests using JUnit, AssertJ, Mockito, achieving more than 90% code coverage.</p>
+                                            <p>• Integrated third-party APIs and internal services for inventory and order systems.</p>
+                                            <p>• Reviewed code for performance, readability, and adherence to design patterns.</p>
+                                            <p>• Participated in sprint planning and retrospectives in a SAFe Agile environment.</p>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 3-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">2020 - 2021</div>
+                                                <div class="small fw-bolder">IT Support Associate</div>
+                                                <div class="small text-muted">UHG (Optum)</div>
+                                                <div class="small text-muted">Eden Prairie, AR</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>
+                                            <p>• Provided technical support for internal teams, resolving complex hardware, software, and networking issues.</p>
+                                            <p>• Administered and supported Office 365, AWS, and Azure cloud environments.</p>
+                                            <p>• Managed user access, group policies, and permissions through Active Directory.</p>
+                                            <p>• Performed system updates, antivirus management, data backup and recovery.</p>
+                                            <p>• Collaborated with Tier-2/3 support for critical incident resolution and escalations.</p>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Education Section-->
+                        <section>
+                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>
+                            <!-- Education Card 1-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">2017 - 2020</div>
+                                                <div class="mb-2">
+                                                    <div class="small fw-bolder">University of Texas at Arlington</div>
+                                                    <div class="small text-muted">Arlington, TX</div>
+                                                </div>
+                                                <div class="fst-italic">
+                                                    <div class="small text-muted">Bachelors of Science</div>
+                                                    <div class="small text-muted">Information Systems</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>I am a proud graduate of the University of Texas at Arlington, where I earned my degree in Information Systems. My academic journey provided me with a strong foundation in business technology, database management, programming, systems analysis, and IT project management. During my time at UTA, I gained both technical and analytical skills that bridge the gap between business needs and technology solutions.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Education Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">2015 - 2017</div>
+                                                <div class="mb-2">
+                                                    <div class="small fw-bolder">Tarrant County College</div>
+                                                    <div class="small text-muted">Fort-Worth, TX</div>
+                                                </div>
+                                                <div class="fst-italic">
+                                                    <div class="small text-muted">Associate</div>
+                                                    <div class="small text-muted">Liberal Arts</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"><div>I earned my Associate of Arts in Liberal Arts from Tarrant County College (TCC), where I built a broad academic foundation that strengthened my skills in critical thinking, communication, and problem-solving. My studies exposed me to a variety of disciplines, including the humanities, social sciences, and mathematics, helping me develop a well-rounded perspective and adaptability in different fields.
+                                            This experience not only prepared me for further academic advancement but also enhanced essential professional skills such as research, writing, teamwork, and analytical reasoning—all of which continue to support my career in technology and information systems.</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Divider-->
+                        <div class="pb-5"></div>
+                        <!-- Skills Section-->
+                        <section>
+                            <!-- Skillset Card-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <!-- Professional skills list-->
+                                    <div class="mb-5">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
+                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Spring Framework</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Database Optimization</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Web Development</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Network Security</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Software Testing</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Enterprise Application</div></div>
+                                        </div>
+                                    </div>
+                                    <!-- Languages list-->
+                                    <div class="mb-0">
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
+                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JAVA</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SQL</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Spring Boot</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Docker</div></div>
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Jenkins CI/CD</div></div>
+                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">GitHub</div></div>
+                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Kubernetes</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer-->
+        <div th:insert="footer :: footer"></div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+    </body>
+</html>
