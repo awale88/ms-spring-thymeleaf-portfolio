@@ -1,10 +1,19 @@
 package com.spring.portfolio.controller;
 
+import com.spring.portfolio.model.ContactForm;
+import com.spring.portfolio.service.EmailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping({"/", "", "/index"})
     public String showHomePage() {
@@ -22,7 +31,8 @@ public class HomeController {
     }
 
     @GetMapping("/contact")
-    public String showContact() {
+    public String showContact(Model model) {
+        model.addAttribute("contactForm", new ContactForm());
         return "contact";
     }
 
@@ -34,5 +44,18 @@ public class HomeController {
     @GetMapping("/privacy")
     public String showPrivacy() {
         return "privacy";
+    }
+
+    @PostMapping("/contact")
+    public String submitContact(@ModelAttribute("contactForm") ContactForm contactForm, Model model) {
+        try {
+            emailService.sendEmail(contactForm);
+            model.addAttribute("success", true);
+            model.addAttribute("contactForm", new ContactForm());
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", true);
+        }
+        return "contact";
     }
 }
