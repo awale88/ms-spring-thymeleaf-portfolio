@@ -41,7 +41,7 @@ public class EmailService {
             context.setVariable("message", contactForm.getMessage());
             context.setVariable("phone", contactForm.getPhone());
 
-            String emailBody = templateEngine.process("/email/confirmation.html", context);
+            String emailBody = templateEngine.process("email/confirmation.html", context);
 
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
