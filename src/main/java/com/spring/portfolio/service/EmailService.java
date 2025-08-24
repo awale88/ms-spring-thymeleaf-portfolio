@@ -1,6 +1,7 @@
 package com.spring.portfolio.service;
 
 import com.spring.portfolio.model.ContactForm;
+import com.spring.portfolio.repository.ContactRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,12 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public EmailService(JavaMailSender javaMailSender) {
+    @Autowired
+    private ContactRepository repository;
+
+    public EmailService(JavaMailSender javaMailSender, ContactRepository repository) {
         this.mailSender = javaMailSender;
+        this.repository = repository;
     }
 
     @Value("${spring.mail.username}")

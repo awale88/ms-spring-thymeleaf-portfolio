@@ -1,6 +1,7 @@
 package com.spring.portfolio.controller;
 
 import com.spring.portfolio.model.ContactForm;
+import com.spring.portfolio.service.ContactService;
 import com.spring.portfolio.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class HomeController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private ContactService contactService;
 
     @GetMapping({"/", "", "/index"})
     public String showHomePage() {
@@ -49,6 +53,7 @@ public class HomeController {
     @PostMapping("/contact")
     public String submitContact(@ModelAttribute("contactForm") ContactForm contactForm, Model model) {
         try {
+            contactService.saveUser(contactForm);
             emailService.sendEmail(contactForm);
             model.addAttribute("success", true);
             model.addAttribute("contactForm", new ContactForm());
