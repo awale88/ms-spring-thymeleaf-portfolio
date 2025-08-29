@@ -62,6 +62,8 @@ Prod PASSWORD: ${PGPASSWORD}
 - Localhost: 🔗https://localhost:8080
 - Project Link: 🔗https://github.com/awale88/ms-thymeleaf-portfolio.git
 - Website Link: 🔗https://awale-portfolio.up.railway.app/contact
+- Swagger Link: 🔗https://swagger-ui-production.up.railway.app/
+- API Doc Link: 🔗https://awale-portfolio.up.railway.app/api-docs
 
 ### Contact
 
