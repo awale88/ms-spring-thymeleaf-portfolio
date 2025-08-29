@@ -1,15 +1,22 @@
 package com.spring.portfolio.service;
 
 import com.spring.portfolio.model.ContactForm;
+import com.spring.portfolio.model.CustomMetrics;
 import com.spring.portfolio.repository.ContactRepository;
+
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+
 import org.springframework.stereotype.Service;
+
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -17,25 +24,27 @@ import org.thymeleaf.context.Context;
 @Slf4j
 public class EmailService {
 
-    @Autowired
-    private JavaMailSender mailSender;
-
-    @Autowired
-    private ContactRepository repository;
-
-    private final TemplateEngine templateEngine;
-
-    public EmailService(JavaMailSender javaMailSender, ContactRepository repository, TemplateEngine templateEngine) {
-        this.mailSender = javaMailSender;
-        this.repository = repository;
-        this.templateEngine = templateEngine;
-    }
-
     @Value("${spring.mail.username}")
     private String from;
 
+    private final JavaMailSender mailSender;
+    private final ContactRepository repository;
+    private final CustomMetrics customMetrics;
+    private final TemplateEngine templateEngine;
+
+    @Autowired
+    public EmailService(JavaMailSender javaMailSender, ContactRepository repository, TemplateEngine templateEngine,
+                        CustomMetrics customMetrics) {
+        this.mailSender = javaMailSender;
+        this.repository = repository;
+        this.templateEngine = templateEngine;
+        this.customMetrics = customMetrics;
+    }
+
     public boolean sendEmail(ContactForm contactForm) throws MessagingException {
         try {
+            customMetrics.recordEmailAttempts();
+
             Context context = new Context();
             context.setVariable("name", contactForm.getName());
             context.setVariable("message", contactForm.getMessage());
@@ -57,8 +66,10 @@ public class EmailService {
 
         } catch (MessagingException ex) {
             log.error("Messaging Exception while sending email to {}: {}", contactForm.getEmail(), ex.getMessage());
+            customMetrics.recordEmailErrors();
         } catch (Exception e) {
             log.error("Unexpected error while sending email to {}: {}", contactForm.getEmail(), e.getMessage());
+            customMetrics.recordEmailErrors();
         }
         return false;
     }

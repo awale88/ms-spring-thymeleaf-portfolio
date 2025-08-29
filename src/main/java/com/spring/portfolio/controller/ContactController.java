@@ -1,15 +1,21 @@
-package com.spring.portfolio.config;
+package com.spring.portfolio.controller;
 
 import com.spring.portfolio.model.ContactForm;
+import com.spring.portfolio.model.CustomMetrics;
 import com.spring.portfolio.service.ContactService;
 import com.spring.portfolio.service.EmailService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +32,9 @@ public class ContactController {
     @Autowired
     ContactService contactService;
 
+    @Autowired
+    CustomMetrics customMetrics;
+
     @PostMapping("/contact")
     @Operation(
             summary = "Submit a contact form via API",
@@ -38,6 +47,8 @@ public class ContactController {
     public String submitContact(@ModelAttribute("contactForm") ContactForm contactForm, Model model) {
         try {
             log.info("Successfully saved user into db.");
+            customMetrics.recordEmailAttempts();
+            customMetrics.recordContactSubmission();
             contactService.saveUser(contactForm);
             log.info("Email was sent successfully.");
             emailService.sendEmail(contactForm);
@@ -45,6 +56,7 @@ public class ContactController {
             model.addAttribute("contactForm", new ContactForm());
         } catch (Exception e) {
             log.error("Unexpected error: {} ", e.getMessage());
+            customMetrics.recordEmailErrors();
             e.printStackTrace();
             model.addAttribute("error", true);
         }
