@@ -3,16 +3,12 @@ package com.spring.portfolio.controller;
 import com.spring.portfolio.model.ContactForm;
 import com.spring.portfolio.service.ContactService;
 import com.spring.portfolio.service.EmailService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-@Slf4j
 public class HomeController {
 
     @Autowired
@@ -52,20 +48,4 @@ public class HomeController {
         return "privacy";
     }
 
-    @PostMapping("/contact")
-    public String submitContact(@ModelAttribute("contactForm") ContactForm contactForm, Model model) {
-        try {
-            log.info("Successfully saved user into db.");
-            contactService.saveUser(contactForm);
-            log.info("Email was sent successfully.");
-            emailService.sendEmail(contactForm);
-            model.addAttribute("success", true);
-            model.addAttribute("contactForm", new ContactForm());
-        } catch (Exception e) {
-            log.error("Unexpected error: {} ", e.getMessage());
-            e.printStackTrace();
-            model.addAttribute("error", true);
-        }
-        return "contact";
-    }
 }
