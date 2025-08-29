@@ -21,7 +21,7 @@ public class SwaggerConfig {
                         .description("API for contact forms and sending emails"))
                 .servers(List.of(
                         new Server()
-                                .url("https://swagger-ui-production.up.railway.app/")
+                                .url("${SWAGGER_URL}")
                                 .description("Production Server"),
                         new Server()
                                 .url("http://localhost:8080")
