@@ -1,4 +1,4 @@
-package com.spring.portfolio.config;
+package com.spring.portfolio.controller;
 
 import com.spring.portfolio.model.ContactForm;
 import com.spring.portfolio.service.ContactService;
@@ -9,14 +9,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/api/contacts")
+@Controller
 @Slf4j
 public class ContactController {
 
