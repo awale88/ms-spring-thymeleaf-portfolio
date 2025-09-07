@@ -31,7 +31,7 @@ Ensure you have the following installed:
 - Java Mail Sender (Email SMTP)
 - Project Lombok plugin
 - PostgresSQL container running in Railway
-- Project deployed in Railway.app
+- Project deployed in Rendor.com
 - An IDE of your choice (IntelliJ IDEA, Eclipse, VS Code, etc.)
 
 ## Getting Started
@@ -39,8 +39,8 @@ Ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/awale88/ms-thymeleaf-portfolio.git
-cd ms-thymeleaf-portfolio
+git clone https://github.com/awale88/ms-spring-thymeleaf-portfolio.git
+cd ms-spring-thymeleaf-portfolio
 mvn clean install
 mvn spring-boot:run
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
@@ -60,10 +60,7 @@ Prod PASSWORD: ${PGPASSWORD}
 ### Links
 
 - Localhost: 🔗https://localhost:8080
-- Project Link: 🔗https://github.com/awale88/ms-thymeleaf-portfolio.git
-- Website Link: 🔗https://awale-portfolio.up.railway.app/contact
-- Swagger Link: 🔗https://swagger-ui-production.up.railway.app/
-- API Doc Link: 🔗https://awale-portfolio.up.railway.app/api-docs
+- Project Link: 🔗https://github.com/awale88/ms-spring-thymeleaf-portfolio.git
 
 ### Contact
 
